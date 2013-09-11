@@ -51,7 +51,7 @@ char valeur (char num_bit)
 {
 	int val_lue = 0;
 
-	if (!(PTJ >> num_bit) & 0x00) val_lue = 1;
+	if (!((PTJ >> num_bit) & 0x01)) val_lue = 1;
 
 	return val_lue;
 }
