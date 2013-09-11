@@ -15,6 +15,10 @@ void main (void)
 	while(1)
 	{
 		cacheP = PTP;
+
+		if (detecte_front_montant(3)) allume_led(2, 1);
+		
+		allume_led(7, valeur(0)); 
 	}
 
 }
