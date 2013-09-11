@@ -1,7 +1,8 @@
 #include "X12.h"
 
 void init_ports (void);
-void allume_led (void);
+char valeur(char num_bit);
+void allume_led (char num_led, char valeur);
 
 void main (void)
 {
@@ -26,9 +27,61 @@ void init_ports(void)
 	PERJ |= 0xC0;
 }
 
-void allume_led(void)
+void allume_led(char num_led, char valeur)
 {
-	if (PTP == 0xEF) PORTA = 0x55;
-	else if (PTP == 0xDF) PORTA = 0xAA;
-	else PORTA = 0x00;
+	if (valeur)
+	switch (num_led)
+	{
+		case 0:	PORTA |= 0x01;
+			break;
+
+		case 1:	PORTA |= 0x02;
+			break;
+
+		case 2:	PORTA |= 0x04;
+			break;
+
+		case 3:	PORTA |= 0x08;
+			break;
+
+		case 4:	PORTA |= 0x10;
+			break;
+
+		case 5:	PORTA |= 0x20;
+			break;
+
+		case 6:	PORTA |= 0x40;
+			break;
+
+		case 7:	PORTA |= 0x80;
+			break;
+	}
+
+	else
+	switch (num_led)
+	{
+		case 0:	PORTA &= ~0x01;
+			break;
+
+		case 1:	PORTA &= ~0x02;
+			break;
+
+		case 2:	PORTA &= ~0x04;
+			break;
+
+		case 3:	PORTA &= ~0x08;
+			break;
+
+		case 4:	PORTA &= ~0x10;
+			break;
+
+		case 5:	PORTA &= ~0x20;
+			break;
+
+		case 6:	PORTA &= ~0x40;
+			break;
+
+		case 7:	PORTA &= ~0x80;
+			break;
+	}
 }
