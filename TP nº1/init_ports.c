@@ -1,4 +1,5 @@
-#include "X12.h"
+#include <hidef.h>
+#include "derivative.h"
 
 void init_ports 		(void);
 char detecte_front_montant	(char num_bit);
